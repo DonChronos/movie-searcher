@@ -2,15 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from 'Logo/Logo';
 
-const navigationItem = ( props: any ) => (
-    <li className={classes.NavigationItem}>
-        <NavLink 
-            to={props.link}
-            exact={props.exact}
-            activeClassName={classes.active}>{props.children}</NavLink>
-    </li>
-);
-
 const header = ( props: any) => (
 	            <header>
 				    <Logo />
@@ -29,3 +20,5 @@ const header = ( props: any) => (
                     </nav>
                 </header>
 )
+
+export default header;
