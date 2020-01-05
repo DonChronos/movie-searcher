@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const searchBar = styled.input`
+const SearchBar = styled.input`
 width: 500px;
 `
 
-const search = (props: any) => (
-<SearchBar>
+const search = (props: any) => {
+return (
+<SearchBar >
 </SearchBar>
 )
-
+}
 export default search;

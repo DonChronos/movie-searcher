@@ -1,10 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import Logo from 'Logo/Logo';
+import { NavLink, Link } from 'react-router-dom';
+import Logo from './Logo/Logo';
+import SearchBar from './search';
 
 const header = ( props: any) => (
 	            <header>
-				    <Logo />
+				    <Link to="/">
+				        <Logo />
+					</Link>
                     <nav>
                         <ul>
                             <li><NavLink
@@ -18,6 +21,7 @@ const header = ( props: any) => (
                                 >Favourites</NavLink></li>
                         </ul>
                     </nav>
+					<SearchBar />
                 </header>
 )
 
