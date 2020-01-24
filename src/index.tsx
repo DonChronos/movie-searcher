@@ -9,7 +9,8 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 
 import trendingMovies from "./store/reducers/trendingMovies";
-import { watchTrending } from "./store/sagas";
+import getMovieDetails from "./store/reducers/getMovie";
+import { watchTrending, getMovie } from "./store/sagas";
 
 declare global {
   interface Window {
@@ -21,6 +22,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 	
 const rootReducer = combineReducers({
   trendingMovies,
+  getMovieDetails,
 });
 	
 const sagaMiddleware = createSagaMiddleware();
@@ -31,6 +33,7 @@ const store = createStore(
 );
 
 sagaMiddleware.run(watchTrending);
+sagaMiddleware.run(getMovie);
 
 const app = (
   <Provider store={store}>

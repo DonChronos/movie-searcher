@@ -21,7 +21,6 @@ const mapDispatchToProps = (dispatch: any) => {
 
 const Trending = (props: any) => {
 	useEffect(() => {
-		console.log(props);
 		props.fetchTrending(props.movies.currentPage);
 		return () => props.newTrendingRequest();
 	}, [])

@@ -6,6 +6,7 @@ export const fetchTrending = (page: any) => {
 		page: page,
 	}
 }
+
 export const fetchTrendingStart = () => {
 	return {
 		type: actionTypes.GET_TRENDING_REQUEST,

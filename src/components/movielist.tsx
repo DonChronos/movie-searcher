@@ -31,7 +31,7 @@ const MovieList = (props: any) => {
 			loader={<h3 key={currentPage}>Loading...</h3>}
 			initialLoad={false}
 		>
-			<MoviesWrapper>{isLoading ? [...movieCards, <h3>Loading...</h3>] : movieCards}</MoviesWrapper>
+			<MoviesWrapper>{isLoading ? [...movieCards, <h3 key={currentPage+100}>Loading...</h3>] : movieCards}</MoviesWrapper>
 		</InfiniteScroll>
 	)
 }

@@ -44,10 +44,10 @@ const header = ( props: any) => (
                     <nav>
                         <Ul>
                             <Li><NavLink
-                                to="/"
+                                to="/trending"
                                 exact
                                 activeClassName="my-active"
-                                >HOME</NavLink></Li>
+                                >TRENDING</NavLink></Li>
                             <Li><NavLink
                                 to="/favourites"
 								activeClassName="my-active"
