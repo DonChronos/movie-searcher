@@ -14,14 +14,14 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
 	return {
-		fetchTrending: (page: number) => dispatch(actions.fetchTrending(page)),
+		fetchData: (page: number) => dispatch(actions.fetchTrending(page)),
 		newTrendingRequest: () => dispatch(actions.newTrendingRequest()),
 	}
 }
 
 const Trending = (props: any) => {
 	useEffect(() => {
-		props.fetchTrending(props.movies.currentPage);
+		props.fetchData(props.movies.currentPage);
 		return () => props.newTrendingRequest();
 	}, [])
 	

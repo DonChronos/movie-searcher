@@ -9,8 +9,15 @@ width: 600px;
 `
 
 const search = (props: any) => {
+	const { handleQuerySearch, movies } = props;
+	const { query } = movies;	
 return (
-<SearchBar >
+<SearchBar onChange={handleQuerySearch} 
+onKeyDown={e => { if (e.keyCode === 13) {
+handleQuerySearch(e)
+}
+}} 
+value={query} >
 </SearchBar>
 )
 }

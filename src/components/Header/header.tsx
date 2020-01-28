@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Logo from './Logo/Logo';
-import SearchBar from './search';
+import SearchInput from '../../containers/SearchInput';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -40,7 +40,7 @@ const header = ( props: any) => (
 				    <Link to="/">
 				        <Logo />
 					</Link>
-					<SearchBar />
+					<SearchInput />
                     <nav>
                         <Ul>
                             <Li><NavLink
@@ -51,7 +51,7 @@ const header = ( props: any) => (
                             <Li><NavLink
                                 to="/favourites"
 								activeClassName="my-active"
-                                >FAVOURTIES</NavLink></Li>
+                                >FAVOURITES</NavLink></Li>
                         </Ul>
                     </nav>
                 </Header>

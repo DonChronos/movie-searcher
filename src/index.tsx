@@ -10,7 +10,10 @@ import createSagaMiddleware from "redux-saga";
 
 import trendingMovies from "./store/reducers/trendingMovies";
 import getMovieDetails from "./store/reducers/getMovie";
-import { watchTrending, getMovie } from "./store/sagas";
+import favouriteMovies from "./store/reducers/favouriteMovies";
+import favouriteMoviesId from "./store/reducers/favouriteMoviesId";
+import searchMovies from "./store/reducers/searchMovies";
+import { watchTrending, getMovie, watchFavourites, watchFavouriteIds, watchSearch } from "./store/sagas";
 
 declare global {
   interface Window {
@@ -23,6 +26,9 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
   trendingMovies,
   getMovieDetails,
+  favouriteMovies,
+  favouriteMoviesId,
+  searchMovies,
 });
 	
 const sagaMiddleware = createSagaMiddleware();
@@ -34,6 +40,9 @@ const store = createStore(
 
 sagaMiddleware.run(watchTrending);
 sagaMiddleware.run(getMovie);
+sagaMiddleware.run(watchFavourites);
+sagaMiddleware.run(watchFavouriteIds);
+sagaMiddleware.run(watchSearch);
 
 const app = (
   <Provider store={store}>

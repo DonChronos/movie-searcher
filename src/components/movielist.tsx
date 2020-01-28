@@ -16,17 +16,32 @@ padding: 25px 0;
 }
 `
 const MovieList = (props: any) => {
-	const { fetchTrending, movies } = props;
+	const { fetchData, movies } = props;
 	const { data, isLoading, currentPage, totalPages } = movies;
+	
 	const movieCards = data.map((movie: any) => (
 		<li key={movie.id}>
 			<MovieCard movie={movie} />
 		</li>
 	));
+	if (movies.query) {
+		const { query } = movies;
+		return (
+		<InfiniteScroll
+			pageStart={0}
+			loadMore={() => fetchData(currentPage, query)}
+			hasMore={isLoading ? false : currentPage <= totalPages}
+			loader={<h3 key={currentPage}>Loading...</h3>}
+			initialLoad={false}
+		>
+			<MoviesWrapper>{isLoading ? [...movieCards, <h3 key={currentPage+100}>Loading...</h3>] : movieCards}</MoviesWrapper>
+		</InfiniteScroll>
+	)
+	}
 	return (
 		<InfiniteScroll
 			pageStart={0}
-			loadMore={() => fetchTrending(currentPage)}
+			loadMore={() => fetchData(currentPage)}
 			hasMore={isLoading ? false : currentPage <= totalPages}
 			loader={<h3 key={currentPage}>Loading...</h3>}
 			initialLoad={false}
