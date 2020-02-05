@@ -10,6 +10,10 @@ width: 355px;
 height: 533px;
 margin: 0;
 background-size: cover;
+align-items: center;
+&:hover button {
+	opacity: 1;
+}
 @media (max-width: 500px) {
 	width: 225px;
 	height: 337px;
@@ -18,6 +22,21 @@ background-size: cover;
 
 const PageWrapper = styled.div`
 display: flex;
+margin: 0 auto;
+margin-top: 70px;
+padding: 20px;
+box-sizing: border-box;
+width: 80%;
+flex-direction: row;
+background-color: #f2f4f4;
+@media (max-width: 950px) {
+		flex-direction: column;
+		align-items: center;
+	}
+@media (max-width: 500px) {
+		width: 100%;
+		padding: 0px;
+	}
 `
 
 const MoviePage = (props: any) => {
@@ -35,10 +54,9 @@ const MoviePage = (props: any) => {
 	<MovieCardWrapper style={{
 		backgroundImage: `url(https://image.tmdb.org/t/p/w500${poster_path})`,
 		}}
-	>
+	><FavButton id={id} />
 	</MovieCardWrapper>
-	<FavButton id={id} />
-	<p>{title}</p>
+	
 	<p>{overview}</p>
 	<p>{release_date}</p>
 	</PageWrapper>

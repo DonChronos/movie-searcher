@@ -19,6 +19,9 @@ const mapDispatchToProps = (dispatch: any) => {
 }
 
 const Movie = (props: any) => {
+	useEffect(() => {
+		return () => window.scrollTo(0, 0);
+	}, [])
 	return <MoviePage {...props} />;
 };
 

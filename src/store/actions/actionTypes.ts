@@ -20,6 +20,7 @@ const actionTypes = {
 	ADD_FAV_ID: 'ADD_FAV_ID',
 	DEL_FAV_ID: 'DEL_FAV_ID',
 	CLEAR_FAVS: 'CLEAR_FAVS',
+	CHANGE_LANGUAGE: 'CHANGE_LANGUAGE',
 }
 
 export default actionTypes;

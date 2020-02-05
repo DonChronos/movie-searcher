@@ -1,8 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Button = styled.button`
+width: 100%;
+height: 10%;
+opacity: 0;
+`
 
 const FavButton = (props: any) => {
 	const { addFav, delFav, ids, id } = props;
-	const isFavorite = ids.data.includes(id)
+	const isFavourite = localStorage.getItem(`id${id}`);
 	const clickAddFav = () => {
 		addFav(id);
 	}
@@ -11,10 +18,10 @@ const FavButton = (props: any) => {
 	}
 	return (
 	<>
-	{isFavorite ? (
-		<button onClick={clickDelFav}>Remove favorite</button>
+	{isFavourite ? (
+		<Button onClick={clickDelFav}>Remove from favourites</Button>
 	) : (
-		<button onClick={clickAddFav}>Add to favorite</button>
+		<Button onClick={clickAddFav}>Add to favourites</Button>
 	)}
 	</>
 	)

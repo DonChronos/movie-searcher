@@ -13,6 +13,7 @@ import getMovieDetails from "./store/reducers/getMovie";
 import favouriteMovies from "./store/reducers/favouriteMovies";
 import favouriteMoviesId from "./store/reducers/favouriteMoviesId";
 import searchMovies from "./store/reducers/searchMovies";
+import languageSelect from './store/reducers/languageSelect';
 import { watchTrending, getMovie, watchFavourites, watchFavouriteIds, watchSearch } from "./store/sagas";
 
 declare global {
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   favouriteMovies,
   favouriteMoviesId,
   searchMovies,
+  languageSelect,
 });
 	
 const sagaMiddleware = createSagaMiddleware();

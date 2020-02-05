@@ -23,13 +23,13 @@ const mapDispatchToProps = (dispatch: any) => {
 
 const SearchInput = (props: any) => {
 	const { isLoading, query } = props.movies;
-	const startSearch = async () => {
+	const startSearch = async (value: any) => {
 		if (window.location.pathname !== '/search') {
 			props.history.push('/search')
 		}
 		await (props.newSearchRequest())
 		window.scrollTo(0,0)
-		await (props.fetchSearch(1, query))
+		await (props.fetchSearch(1, value.target.value))
 	}
 	const QuerySearch = async (e: any) => {
 		e.persist();
@@ -39,18 +39,18 @@ const SearchInput = (props: any) => {
 	let timer = useRef(0);
 	
 	function DelayWrapper (dispatchFn: any) {
-		const StartTimer = () => {
+		const StartTimer = (value: any) => {
 			timer.current = setTimeout(async () => {
-				await startSearch();
+				await startSearch(value);
 				clearTimeout(timer.current)
 			}, 1500)
 		}
 		return async (value: any) => {
 			await dispatchFn(value);
 			clearTimeout(timer.current);
-			StartTimer();
+			StartTimer(value);
 			if (isLoading) {
-				StartTimer();
+				StartTimer(value);
 			}
 		}
 	}

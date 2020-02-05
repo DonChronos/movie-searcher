@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Logo from './Logo/Logo';
 import SearchInput from '../../containers/SearchInput';
+import LanguageSelect from '../../containers/LanguageSelect';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -54,6 +55,7 @@ const header = ( props: any) => (
                                 >FAVOURITES</NavLink></Li>
                         </Ul>
                     </nav>
+					<LanguageSelect />
                 </Header>
 )
 
