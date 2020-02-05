@@ -23,7 +23,7 @@ const { changeLanguage, reducer } = props;
 const { language } = reducer;
 const list = ['en', 'ru', 'es', 'pt'];
 let content = list.map(e => (e === language) ? null : 
-<Flag onClick={() => changeLanguage(e)} style={{backgroundPosition: (e === 'en') ? '-288px -96px' :
+<Flag key={e} onClick={() => changeLanguage(e)} style={{backgroundPosition: (e === 'en') ? '-288px -96px' :
 (e === 'ru') ? '-216px -264px' : (e === 'es') ? '-48px -96px' :
 (e === 'pt') ? '-72px -264px' : undefined}} />);
 return (
