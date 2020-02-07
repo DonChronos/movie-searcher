@@ -40,10 +40,14 @@ background-color: #f2f4f4;
 `
 
 const MoviePage = (props: any) => {
+	// url_id for recommended
+	let url_id = props.match.params.id
+	const { getMovie } = props;
+	let { language } = props.languageSelect;
 	useEffect(() => {
-		props.getMovie(+props.match.params.id);
+		getMovie(+url_id);
 		window.scrollTo(0, 0)
-	}, [props.match.params.id])
+	}, [url_id, language, getMovie])
 	const { movie } = props;
 	const { data, isLoading } = movie;
 	if (isLoading || data === null) { return <h3>Loading...</h3> };

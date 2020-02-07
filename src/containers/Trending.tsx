@@ -6,9 +6,10 @@ import MovieList from '../components/movielist';
 declare var dispatch: any;
 
 const mapStateToProps = (state: any) => {
-	const { trendingMovies } = state;
+	const { trendingMovies, languageSelect } = state;
 	return {
 		movies: trendingMovies,
+		languageSelect
 	}
 }
 
@@ -20,11 +21,14 @@ const mapDispatchToProps = (dispatch: any) => {
 }
 
 const Trending = (props: any) => {
+	const { language } = props.languageSelect;
+    const { fetchData, newTrendingRequest } = props;	
 	useEffect(() => {
-		props.fetchData(props.movies.currentPage);
-		return () => props.newTrendingRequest();
-	}, [])
-	
+		fetchData(1);
+		return () => {
+			newTrendingRequest();
+		}
+	}, [language, fetchData, newTrendingRequest]);
 	return <MovieList {...props} />;
 };
 

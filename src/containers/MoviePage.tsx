@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/getMovie';
 import MoviePage from '../components/moviepage';
@@ -6,9 +6,10 @@ import MoviePage from '../components/moviepage';
 declare var dispatch: any;
 
 const mapStateToProps = (state: any) => {
-	const { getMovieDetails } = state;
+	const { getMovieDetails, languageSelect } = state;
 	return {
 		movie: getMovieDetails,
+		languageSelect
 	}
 }
 
@@ -19,9 +20,6 @@ const mapDispatchToProps = (dispatch: any) => {
 }
 
 const Movie = (props: any) => {
-	useEffect(() => {
-		return () => window.scrollTo(0, 0);
-	}, [])
 	return <MoviePage {...props} />;
 };
 

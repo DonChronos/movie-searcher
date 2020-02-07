@@ -22,13 +22,12 @@ const mapDispatchToProps = (dispatch: any) => {
 }
 
 const SearchInput = (props: any) => {
-	const { isLoading, query } = props.movies;
+	const { isLoading } = props.movies;
 	const startSearch = async (value: any) => {
 		if (window.location.pathname !== '/search') {
 			props.history.push('/search')
 		}
 		await (props.newSearchRequest())
-		window.scrollTo(0,0)
 		await (props.fetchSearch(1, value.target.value))
 	}
 	const QuerySearch = async (e: any) => {

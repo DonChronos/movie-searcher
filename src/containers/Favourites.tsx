@@ -6,10 +6,10 @@ import MovieList from '../components/movielist';
 declare var dispatch: any;
 
 const mapStateToProps = (state: any) => {
-	const { favouriteMovies, favouriteMoviesId } = state;
+	const { favouriteMovies, languageSelect } = state;
 	return {
 		movies: favouriteMovies,
-		ids: favouriteMoviesId,
+		languageSelect,
 	}
 }
 
@@ -21,12 +21,14 @@ const mapDispatchToProps = (dispatch: any) => {
 }
 
 const Favourites = (props: any) => {
+	const { language } = props.languageSelect;
+    const { fetchFavourite, clearFavs } = props;	
 	useEffect(() => {
 		Object.keys(localStorage).forEach((id: any) => {
-		props.fetchFavourite(localStorage.getItem(id))
+		fetchFavourite(localStorage.getItem(id))
 	})
-		return () => props.clearFavs();
-	}, [])
+		return () => clearFavs();
+	}, [language, fetchFavourite, clearFavs])
 	
 	return <MovieList {...props} />;
 };

@@ -8,7 +8,7 @@ opacity: 0;
 `
 
 const FavButton = (props: any) => {
-	const { addFav, delFav, ids, id } = props;
+	const { addFav, delFav, id } = props;
 	const isFavourite = localStorage.getItem(`id${id}`);
 	const clickAddFav = () => {
 		addFav(id);
