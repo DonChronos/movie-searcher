@@ -52,7 +52,6 @@ const MoviePage = (props: any) => {
 	const { data, isLoading } = movie;
 	if (isLoading || data === null) { return <h3>Loading...</h3> };
 	const { title, overview, genres, release_date, poster_path, id } = data;
-	console.log(id);
 	return (
 	<PageWrapper>
 	<MovieCardWrapper style={{
