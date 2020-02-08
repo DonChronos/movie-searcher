@@ -6,9 +6,10 @@ import FavButton from '../components/favbutton';
 declare var dispatch: any;
 
 const mapStateToProps = (state: any) => {
-	const { favouriteMoviesId } = state;
+	const { favouriteMoviesId, languageSelect } = state;
 	return {
-		ids: favouriteMoviesId,
+		favouriteMoviesId,
+		languageSelect,
 	}
 }
 

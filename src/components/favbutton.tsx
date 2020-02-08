@@ -8,7 +8,15 @@ opacity: 0;
 `
 
 const FavButton = (props: any) => {
-	const { addFav, delFav, id } = props;
+	const { addFav, delFav, id, languageSelect } = props;
+	const { language } = languageSelect;
+	const translation: {[index: string]:any}  = {
+		en: ['Remove from favourites', 'Add to favourites'],
+		ru: ['Удалить из избранных', 'Добавить в избранные'],
+		es: ['Eliminar de favoritos','Añadir a favoritos'], 
+		pt: ['Remover dos favoritos', 'Adicionar aos favoritos'],
+	}
+	console.log(translation[language]);
 	const isFavourite = localStorage.getItem(`id${id}`);
 	const clickAddFav = () => {
 		addFav(id);
@@ -19,9 +27,9 @@ const FavButton = (props: any) => {
 	return (
 	<>
 	{isFavourite ? (
-		<Button onClick={clickDelFav}>Remove from favourites</Button>
+		<Button onClick={clickDelFav}>{translation[language][0]}</Button>
 	) : (
-		<Button onClick={clickAddFav}>Add to favourites</Button>
+		<Button onClick={clickAddFav}>{translation[language][1]}</Button>
 	)}
 	</>
 	)
