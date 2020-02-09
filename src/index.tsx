@@ -14,7 +14,8 @@ import favouriteMovies from "./store/reducers/favouriteMovies";
 import favouriteMoviesId from "./store/reducers/favouriteMoviesId";
 import searchMovies from "./store/reducers/searchMovies";
 import languageSelect from './store/reducers/languageSelect';
-import { watchTrending, getMovie, watchFavourites, watchFavouriteIds, watchSearch } from "./store/sagas";
+import recommendedMovies from './store/reducers/recommendedMovies';
+import { watchTrending, getMovie, watchFavourites, watchFavouriteIds, watchSearch, watchRecommended } from "./store/sagas";
 
 declare global {
   interface Window {
@@ -31,6 +32,7 @@ const rootReducer = combineReducers({
   favouriteMoviesId,
   searchMovies,
   languageSelect,
+  recommendedMovies
 });
 	
 const sagaMiddleware = createSagaMiddleware();
@@ -45,6 +47,7 @@ sagaMiddleware.run(getMovie);
 sagaMiddleware.run(watchFavourites);
 sagaMiddleware.run(watchFavouriteIds);
 sagaMiddleware.run(watchSearch);
+sagaMiddleware.run(watchRecommended);
 
 const app = (
   <Provider store={store}>

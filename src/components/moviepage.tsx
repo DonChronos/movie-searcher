@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import FavButton from '../containers/FavouriteButton';
+import Recommended from '../containers/Recommended';
 import styled from 'styled-components';
 
 const MovieCardWrapper = styled.div`
@@ -23,7 +24,7 @@ align-items: center;
 const PageWrapper = styled.div`
 display: flex;
 margin: 0 auto;
-margin-top: 70px;
+margin-top: 30px;
 padding: 20px;
 box-sizing: border-box;
 width: 80%;
@@ -51,8 +52,10 @@ const MoviePage = (props: any) => {
 	const { movie } = props;
 	const { data, isLoading } = movie;
 	if (isLoading || data === null) { return <h3>Loading...</h3> };
-	const { title, overview, genres, release_date, poster_path, id } = data;
+	const { title, overview, release_date, poster_path, id } = data;
 	return (
+	<>
+	<h1 style={{display: 'block', textAlign: 'center'}}>{title}</h1>
 	<PageWrapper>
 	<MovieCardWrapper style={{
 		backgroundImage: `url(https://image.tmdb.org/t/p/w500${poster_path})`,
@@ -63,6 +66,9 @@ const MoviePage = (props: any) => {
 	<p>{overview}</p>
 	<p>{release_date}</p>
 	</PageWrapper>
+	<h2>Recommended</h2>
+	<Recommended id={id} />
+	</>
 	)
 }
 

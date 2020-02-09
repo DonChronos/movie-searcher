@@ -7,6 +7,7 @@ import { fetchTrendingSaga } from "./trendingMovies";
 import { getMovieSaga } from "./getMovie";
 import { fetchFavouriteSaga, saveFavouriteSaga, removeFavouriteSaga } from "./favouriteMovies";
 import { fetchSearchSaga } from "./searchMovies";
+import { fetchRecommendedSaga } from './recommendedMovies';
 
 export function* watchTrending() {
   yield takeEvery(actionTypes.TRENDING_REQUEST, fetchTrendingSaga);
@@ -29,4 +30,8 @@ export function* watchFavouriteIds() {
 
 export function* watchSearch() {
 	yield takeEvery(actionTypes.SEARCH_REQUEST, fetchSearchSaga);
+}
+
+export function* watchRecommended() {
+  yield takeEvery(actionTypes.RECOMMENDED_REQUEST, fetchRecommendedSaga);
 }

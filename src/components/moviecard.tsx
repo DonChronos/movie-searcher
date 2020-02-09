@@ -33,7 +33,7 @@ const Movie = (props: any) => {
 			</StyledLink>
 		)
 	}
-	const { id, title, posterUrl } = movie;
+	const { id, posterUrl } = movie;
 	return (
 	<StyledLink to={`/movie/${id}`}>
 	<MovieCardWrapper style={{
