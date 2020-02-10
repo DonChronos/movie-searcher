@@ -1,7 +1,6 @@
 import actionTypes from './actionTypes';
 
 export const addFav = (id: any) => {
-	console.log(id);
 	return {
 		type: actionTypes.ADD_FAV_ID,
 		id: id,

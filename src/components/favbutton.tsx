@@ -15,8 +15,7 @@ const FavButton = (props: any) => {
 		ru: ['Удалить из избранных', 'Добавить в избранные'],
 		es: ['Eliminar de favoritos','Añadir a favoritos'], 
 		pt: ['Remover dos favoritos', 'Adicionar aos favoritos'],
-	}
-	console.log(translation[language]);
+	};
 	const isFavourite = localStorage.getItem(`id${id}`);
 	const clickAddFav = () => {
 		addFav(id);

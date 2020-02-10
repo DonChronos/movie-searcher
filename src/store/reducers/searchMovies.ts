@@ -11,7 +11,6 @@ const initialState = {
 export default function searchMovies(state = initialState, action: any) {
 	switch (action.type) {
 		case actionTypes.NEW_SEARCH_REQUEST:
-		console.log(state);
 			return {
 				...state,
 				currentPage: 1,
@@ -36,7 +35,6 @@ export default function searchMovies(state = initialState, action: any) {
 				isLoading: false,
 			}
 		case actionTypes.CHANGE_SEARCH_QUERY:
-		    console.log(action.payload);
 		 	return {
 				...state,
 				query: action.payload,
